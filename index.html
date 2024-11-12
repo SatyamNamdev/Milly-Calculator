@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    
+    <style>
+    h1{
+      display: flex;
+      justify-content: center;
+      font-family: Arial, Sans-Serif;
+      
+    }
+    .cc {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
+  background-color: #f4f4f5; 
+}
+     .calculator {
+         max-width: 250px; 
+        padding: 20px;
+        border: 2px solid #ccc; 
+        border-radius: 15px; 
+        background-color: #fff;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    #display {
+      width: 100%;
+      height: 60px;
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 10px;
+     
+      border-radius: 10px;
+    }
+    .buttons {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+    button {
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .clear {
+      background-color: #ff6666;
+    }
+     .clear:hover {
+        background-color: #e60000;
+      }
+
+      .equal:hover {
+        background-color: #45a049;
+      }
+    .border{
+      border: 2px solid #1E90FF; /* Soft blue border */
+      padding: 25px;
+      border-radius: 20px;
+  box-shadow: 0 0 20px rgba(30, 144, 255, 0.6);
+    }
+       
+       
+    </style>
+  </head>
+  <body>
+     <!--Please Code HTML tags Here in the Body Tag-->
+     
+<h1 class="he">Milly Calculator</h1>
+<div class="cc">
+<div class="Calculator">
+  <div class="border">
+    
+  
+  <input type="text" id="display" disabled />
+
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">DEL</button>
+      <button onclick="appendToDisplay('%')">%</button>
+      <button onclick="appendToDisplay('/')">/</button>
+      
+       <button onclick="appendToDisplay('7')">7</button>
+       <button onclick="appendToDisplay('8')">8</button>
+       <button onclick="appendToDisplay('9')">9</button>
+       <button onclick="appendToDisplay('*')">*</button>
+       
+       <button onclick="appendToDisplay('4')">4</button>
+       <button onclick="appendToDisplay('5')">5</button>
+       <button onclick="appendToDisplay('6')">6</button>
+       <button onclick="appendToDisplay('-')">-</button>
+       
+       <button onclick="appendToDisplay('1')">1</button>
+       <button onclick="appendToDisplay('2')">2</button>
+       <button onclick="appendToDisplay('3')">3</button>
+       <button onclick="appendToDisplay('+')">+</button>
+       <button onclick="appendToDisplay('0')">0</button>
+      <button onclick="appendToDisplay('.')">.</button>
+      <button class="equal" onclick="calculateResult()">=</button>
+  </div>
+  </div> 
+  
+  
+  </div>
+</div>
+     
+  </body>
+  <script >
+    
+      function appendToDisplay(value) {
+      document.getElementById("display").value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = "";
+    }
+
+    function deleteLast() {
+      let display = document.getElementById("display");
+      display.value = display.value.slice(0, -1); 
+    }
+
+  
+    function calculateResult() {
+      let display = document.getElementById("display");
+      try {
+        display.value = eval(display.value); 
+      } catch (error) {
+        display.value = "Error"; //error
+      }
+    }
+  </script>
+</html>
